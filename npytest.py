@@ -38,6 +38,7 @@ def mainScreen(*args):
         n = 1
     s = F.add(npyscreen.TitleSlider, value = n, out_of=2, name = 'GENERATOR 1')
     F.display()
+    time.sleep(1)
     mainScreen()
     #return F.Login.value
    #def main(self):
