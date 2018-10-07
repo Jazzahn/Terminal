@@ -21,6 +21,7 @@ def myFunction(*args):
     if F.Login.value == '161200':
         F = PasswordCorrect()
         F.edit()
+        n = 0
         npyscreen.wrapper_basic(mainScreen)
     elif F.Login.value != '161200':
         F = PasswordIncorrect()
@@ -28,6 +29,7 @@ def myFunction(*args):
         npyscreen.wrapper_basic(myFunction)
 
 def mainScreen(*args):
+    n = 0
     r = requests.get('http://10.1.20.230/status')
     F = npyscreen.Form(name = 'XTeen Computer Interface')
     if r.text == 'Phase One Not Triggered :: Phase Two Not Triggered':
