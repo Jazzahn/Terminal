@@ -46,7 +46,7 @@ def mainScreen(*args):
             n = 1
         elif r.text == 'phase one triggered :: phase two triggered':
             n = 2
-        s.update(value = n)
+        s.update()
         F.display()
         time.sleep(1)
    
