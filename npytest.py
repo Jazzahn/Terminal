@@ -32,9 +32,9 @@ def mainScreen(*args):
     n = 0
     r = requests.get('http://10.1.20.230/status')
     F = npyscreen.Form(name = 'XTeen Computer Interface')
-    if r.text == 'Phase One Not Triggered :: Phase Two Not Triggered':
+    if r.text == 'phase one not triggered :: phase two not triggered':
         n = 0
-    elif r.text == 'Phase One Triggered :: Phase Two Not Triggered':
+    elif r.text == 'phase one triggered :: phase two not triggered':
         n = 1
     s = F.add(npyscreen.TitleSlider, value = n, out_of=2, name = 'GENERATOR 1')
     while n < 3:
