@@ -39,9 +39,10 @@ def mainScreen(*args):
     elif r.text == 'phase one triggered :: phase two triggered':
         n = 2
     s = F.add(npyscreen.TitleSlider, value = n, out_of=2, name = 'GENERATOR 1')
-    F.display()
-    time.sleep(1)
-    mainScreen()
+    while True:
+        F.display()
+        time.sleep(1)
+   
     #return F.Login.value
    #def main(self):
         # These lines create the form and populate it with widgets.
