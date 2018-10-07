@@ -4,7 +4,7 @@ import time
 
 class LoginForm(npyscreen.Form):
    def create(self):
-        self.Login = self.add(npyscreen.TitleText, name = 'ENTER PASSWORD', rely=18, use_two_lines=False)
+        self.Login = self.add(npyscreen.TitleText, name = 'ENTER PASSWORD', rely=19, use_two_lines=False)
 
 class PasswordCorrect(npyscreen.Popup):
     def create(self):
@@ -16,14 +16,14 @@ class PasswordIncorrect(npyscreen.Popup):
 
 
 def myFunction(*args):
-    F = LoginForm(name = 'XTEEN POWER INTERFACE')
+    F = LoginForm(name = 'XTEEN POWER INTERFACE 2.3.11')
     F.edit()
-    if F.Login.value == '161200':
+    if F.Login.value == '161803':
         F = PasswordCorrect()
         F.edit()
         n = 0
         npyscreen.wrapper_basic(mainScreen)
-    elif F.Login.value != '161200':
+    elif F.Login.value != '161803':
         F = PasswordIncorrect()
         F.edit()
         npyscreen.wrapper_basic(myFunction)
@@ -31,7 +31,7 @@ def myFunction(*args):
 def mainScreen(*args):
     n = 0
     r = requests.get('http://10.1.20.230/status')
-    F = npyscreen.Form(name = 'XTeen Computer Interface')
+    F = npyscreen.Form(name = 'XTEEN POWER INTERFACE 2.3.11')
     if r.text == 'phase one not triggered :: phase two not triggered':
         n = 0
     elif r.text == 'phase one triggered :: phase two not triggered':
