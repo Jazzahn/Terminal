@@ -24,7 +24,6 @@ def myFunction(*args):
         n = 0
         while True:
             npyscreen.wrapper_basic(mainScreen)
-            time.sleep(1)
     elif F.Login.value != '161803':
         F = PasswordIncorrect()
         F.edit()
