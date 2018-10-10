@@ -40,6 +40,7 @@ def mainScreen(*args):
     elif r.text == 'phase one triggered :: phase two triggered':
         n = 2
     s = F.add(npyscreen.TitleSlider, value = n, out_of=2, name = 'GENERATOR 1')
+    time.sleep(2)
     F.display()
     
    
