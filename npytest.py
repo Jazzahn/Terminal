@@ -23,6 +23,7 @@ def myFunction(*args):
         F.edit()
         n = 0
         while True:
+            time.sleep(1)
             npyscreen.wrapper_basic(mainScreen)
     elif F.Login.value != '161803':
         F = PasswordIncorrect()
@@ -41,7 +42,7 @@ def mainScreen(*args):
         n = 2
     s = F.add(npyscreen.TitleSlider, value = n, out_of=2, name = 'GENERATOR 1')
     F.display()
-    time.sleep(1)
+    
     
    
     #return F.Login.value
