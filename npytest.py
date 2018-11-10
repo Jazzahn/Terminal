@@ -40,11 +40,18 @@ def myFunction(*args):
 
 def mainScreen(*args):
     while True:
-        n = 0
-        n = getPhase()
+        n1 = 0
+        n2 = 0
+        n3 = 0
+        n1 = getPhase()
         F = npyscreen.Form(name = 'XTEEN POWER INTERFACE 2.3.11')
         t = F.add(npyscreen.FixedText, value = 'POWER FAILURE - RESTART GENERATORS 1, 2, and 3 TO RESTORE FULL POWER')
-        s = F.add(npyscreen.TitleSlider, value = n, out_of=2, name = 'GENERATOR 1')
+        s = F.add(npyscreen.TitleSlider, value = n1, out_of=2, name = 'GENERATOR 1')
+        s = F.add(npyscreen.TitleSlider, value = n2, out_of=2, name = 'GENERATOR 2')
+        s = F.add(npyscreen.TitleSlider, value = n3, out_of=2, name = 'GENERATOR 3')
+        t2 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 1 CODE: "if i cannot inspire Love, i will cause Fear"')
+        t3 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 2 CODE: "th0IlThjZhGtbNMUD6ZVa3  1/ecJPLXhEd7ogH bmJPFHKQV1xCMIi/qB/S    1IkzV+NVi0UhM')
+        t4 - F.add(npyscreen.FixedText, value = 'ERROR TERMINAL MALFUNCTION - ERROR CODE 0x0045')
         F.display()
         time.sleep(1)
     
