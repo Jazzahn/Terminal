@@ -54,7 +54,8 @@ def mainScreen(*args):
         t2 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 1 CODE: "if i cannot inspire Love, i will cause Fear"')
         F.nextrely += 1
         t3 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 2 CODE: "th0IlThjZhGtbNMUD6ZVa3  1/ecJPLXhEd7ogH bmJPFHKQV1xCMIi/qB/S    1IkzV+NVi0UhM')
-        t5 = F.add(npyscreen.FixedText, value = 'Dkp+EyjyxSo10EFLPYw3cI1bohMTEhITMzISEzNCFOl/sQqjCItW/G3o3WMSExMyFaGD4skSUVNRDXdVkGfMTc8p12Vubnl1bUmKdMJV9NiSEzOSE5ykQDVE/S0zzle/WljXO9y2aQ3a/Uk56S/SNApbrrdfiDA+5HK9cGrbP34dPhff80GyaierJ7mU5a/IYgbEkQ9Bp3BlkcG0ipXAbs0PchOSGfLUnagSExMSFv5x/IFtaKwVYhMTYwIWzJTjp+QWRnv75yHbOOITM5IWKDdBWhM+69TvKZK10SVxGBhpIc0sqvVWSEBmdwW1X0h1Fh2y1MN9Y3PF36rJ7SY6JNw1AhMTYwIWIoa3srEY7CmW7U9n2RpJH+AX0ITqdPm9/Sifw6B+x1bKyFpr8hMTAhmiEwIUt+fiZ0n1q7OlJ+hjjpOKe2NjF7aJtHEaRObCib59fK4s0hMTYwIULPITEyIfjvFFZE3CRcp/SMAUMX3flzYW9O+4O6Eec7KxT0JjVv2se+2DSHn/ikzytsx/3lfZnVPyE5IcchMzkhITMzIdRt6MMhMzkh3s0mkUR3w3ghMT')
+        t5 = F.add(npyscreen.FixedText, value = 'Dkp+EyjyxSo10EFLPYw3cI1bohMTEhITMzISE   zNCFOl/sQqjCItW/G3o3WMSExMyFaGD4  skSUVNRDXdVkGfMTc8p12Vu')
+        t5 = F.add(npyscreen.FixedText, value = 'ubnl1bUmKdMJV9NiSEzOSE5ykQDV  E/S0zzle/WljXO9y2aQ3a/Uk56S/SNApbrrdfiDA+5HK9c   GrbP34dPhff80GyaiT')
         F.nextrely += 2
         t4 = F.add(npyscreen.FixedText, value = 'ERROR TERMINAL MALFUNCTION - ERROR CODE 0x0045')
         F.display()
