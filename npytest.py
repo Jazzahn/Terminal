@@ -14,6 +14,16 @@ class PasswordIncorrect(npyscreen.Popup):
     def create(self):
         self.Password = self.add(npyscreen.TitleText, name = ' ', value = 'PASSWORD INCORRECT', editable=False)        
 
+def getPhase():
+    n = 0
+    r = requests.get('http://10.1.20.230/status')
+    if r.text == 'phase one not triggered :: phase two not triggered':
+        n = 0
+    elif r.text == 'phase one triggered :: phase two not triggered':
+        n = 1
+    elif r.text == 'phase one triggered :: phase two triggered':
+        n = 2
+    return n
 
 def myFunction(*args):
     F = LoginForm(name = 'XTEEN POWER INTERFACE 2.3.11')
@@ -22,26 +32,20 @@ def myFunction(*args):
         F = PasswordCorrect()
         F.edit()
         n = 0
-        while True:
-            npyscreen.wrapper_basic(mainScreen)
+        npyscreen.wrapper_basic(mainScreen)
     elif F.Login.value != '161803':
         F = PasswordIncorrect()
         F.edit()
         npyscreen.wrapper_basic(myFunction)
 
 def mainScreen(*args):
-    n = 0
-    r = requests.get('http://10.1.20.230/status')
-    F = npyscreen.Form(name = 'XTEEN POWER INTERFACE 2.3.11')
-    if r.text == 'phase one not triggered :: phase two not triggered':
+    while True:
         n = 0
-    elif r.text == 'phase one triggered :: phase two not triggered':
-        n = 1
-    elif r.text == 'phase one triggered :: phase two triggered':
-        n = 2
-    s = F.add(npyscreen.TitleSlider, value = n, out_of=2, name = 'GENERATOR 1')
-    F.display()
-    time.sleep(1)
+        n = getPhase()
+        F = npyscreen.Form(name = 'XTEEN POWER INTERFACE 2.3.11')
+        s = F.add(npyscreen.TitleSlider, value = n, out_of=2, name = 'GENERATOR 1')
+        F.display()
+        time.sleep(1)
     
    
     #return F.Login.value
