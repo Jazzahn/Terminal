@@ -47,8 +47,10 @@ def mainScreen(*args):
         F = npyscreen.Form(name = 'XTEEN POWER INTERFACE 2.3.11')
         t = F.add(npyscreen.FixedText, value = 'POWER FAILURE - RESTART GENERATORS 1, 2, and 3 TO RESTORE FULL POWER')
         F.nextrely += 2
-        s = F.add(npyscreen.TitleSlider, value = n1, out_of=2, name = 'GENERATOR 1')
+        s = F.add(npyscreen.TitleSlider, value = n1, out_of=2, name = 'GENERATOR 1', label = False)
+        F.nextrely += 1
         s = F.add(npyscreen.TitleSlider, value = n2, out_of=2, name = 'GENERATOR 2')
+        F.nextrely += 1
         s = F.add(npyscreen.TitleSlider, value = n3, out_of=2, name = 'GENERATOR 3')
         F.nextrely += 2
         t2 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 1 CODE: "if i cannot inspire Love, i will cause Fear"')
