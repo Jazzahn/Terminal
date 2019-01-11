@@ -5,6 +5,7 @@ import time
 class LoginForm(npyscreen.Form):
    def create(self):
         self.Login = self.add(npyscreen.TitleText, name = 'ENTER PASSWORD', rely=19, use_two_lines=False)
+        self.Hint = self.add(npyscreen.TitleText, name= 'Password Hint: She was my greatest failure, I blinded her with science', editable=False)
 
 class PasswordCorrect(npyscreen.Popup):
     def create(self):
@@ -55,7 +56,7 @@ def mainScreen(*args):
         F.nextrely += 2
         t2 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 1 CODE: "if i cannot inspire Love, i will cause Fear"')
         F.nextrely += 1
-        t3 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 2 CODE: "th0IlThjZhGtbNMUD6ZVa3  1/ecJPLXhEd7ogH bmJPFHKQV1xCMIi/qB/S    1IkzV+NVi0UhM')
+        t3 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 2 CODE: "th0re ishjZhGtbNMUD6ZVa3  1/ecJPLXhEd7ogH bmJPFHKQV1xCMIi/qB/S    1IkzV+NVi0UhM')
         t5 = F.add(npyscreen.FixedText, value = 'Dkp+EyjyxSo10EFLPYw3cI1bohMTEhITMzISE   zNCFOl/sQqjCItW/G3o3WMSExMyFaGD4  skSUVNRDXdVkGfMTc8p12Vu')
         t5 = F.add(npyscreen.FixedText, value = 'ubnl1bUmKdMJV9NiSEzOSE5ykQDV  E/S0zzle/WljXO9y2aQ3a/Uk56S/SNApbrrdfiDA+5HK9c   GrbP34dPhff80GyaiT')
         F.nextrely += 2
