@@ -5,7 +5,7 @@ import time
 class LoginForm(npyscreen.Form):
    def create(self):
         self.Login = self.add(npyscreen.TitleText, name = 'ENTER PASSWORD', rely=19, use_two_lines=False)
-        self.Hint = self.add(npyscreen.TitleText, name= 'Password Hint: She was my greatest failure, I blinded her with science', editable=False)
+        self.Hint = self.add(npyscreen.TitleText, name= 'Password Hint: She was my greatest failure, I left her in the darkness', editable=False)
 
 class PasswordCorrect(npyscreen.Popup):
     def create(self):
