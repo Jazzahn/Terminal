@@ -17,7 +17,7 @@ class PasswordIncorrect(npyscreen.Popup):
 
 def getPhase():
     n = 0
-    r = requests.get('http://10.1.20.230/status')
+    r = requests.get('http://10.1.20.230/status', timeout=None)
     if r.text == 'phase one not triggered :: phase two not triggered':
         n = 0
     elif r.text == 'phase one triggered :: phase two not triggered':
