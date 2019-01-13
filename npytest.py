@@ -62,7 +62,7 @@ def mainScreen(*args):
         F.nextrely += 2
         t4 = F.add(npyscreen.FixedText, value = 'ERROR TERMINAL MALFUNCTION - ERROR CODE 0x0045')
         F.display()
-        time.sleep(1)
+        time.sleep(2)
     
    
     #return F.Login.value
