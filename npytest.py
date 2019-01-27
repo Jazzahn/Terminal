@@ -28,7 +28,7 @@ def getPhase():
 
 def getGen2Phase():
     n = 0
-    r = requests.get('http://10.1.20.60/status').text
+    r = requests.get('http://10.1.20.60/tstatus').text
     if r == 'Gen2: 000':
         n = 0
     elif r == 'Gen2: 025':
@@ -55,29 +55,30 @@ def myFunction(*args):
         npyscreen.wrapper_basic(myFunction)
 
 def mainScreen(*args):
-    n1 = 0
-    n2 = 0
-    n3 = 0
-    n1 = getPhase()
-    n2 = getGen2Phase()
-    F = npyscreen.Form(name = 'XTEEN POWER INTERFACE 2.3.11')
-    t = F.add(npyscreen.FixedText, value = 'POWER FAILURE - RESTART GENERATORS 1, 2, and 3 TO RESTORE FULL POWER')
-    F.nextrely += 2
-    s = F.add(npyscreen.TitleSlider, value = n1, out_of=2, name = 'GENERATOR 1', label = False)
-    F.nextrely += 1
-    s = F.add(npyscreen.TitleSlider, value = n2, out_of=4, name = 'GENERATOR 2', label = False)
-    F.nextrely += 1
-    s = F.add(npyscreen.TitleSlider, value = n3, out_of=2, name = 'GENERATOR 3', label = False)
-    F.nextrely += 2
-    t2 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 1 CODE: "if i cannot inspire Love, i will cause Fear"')
-    F.nextrely += 1
-    t3 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 2 CODE: "th0re ishjZhGtbNMUD6ZVa3  1/ecJPLXhEd7ogH bmJPFHKQV1xCMIi/qB/S    1IkzV+NVi0UhM')
-    t5 = F.add(npyscreen.FixedText, value = 'Dkp+EyjyxSo10EFLPYw3cI1bohMTEhITMzISE   zNCFOl/sQqjCItW/G3o3WMSExMyFaGD4  skSUVNRDXdVkGfMTc8p12Vu')
-    t5 = F.add(npyscreen.FixedText, value = 'ubnl1bUmKdMJV9NiSEzOSE5ykQDV  E/S0zzle/WljXO9y2aQ3a/Uk56S/SNApbrrdfiDA+5HK9c   GrbP34dPhff80GyaiT')
-    F.nextrely += 2
-    t4 = F.add(npyscreen.FixedText, value = 'ERROR TERMINAL MALFUNCTION - ERROR CODE 0x0045')
-    F.display()
-    time.sleep(1)
+    while True:
+        n1 = 0
+        n2 = 0
+        n3 = 0
+        n1 = getPhase()
+        n2 = request.get('http://10.1.20.60/tstatus').text
+        F = npyscreen.Form(name = 'XTEEN POWER INTERFACE 2.3.11')
+        t = F.add(npyscreen.FixedText, value = 'POWER FAILURE - RESTART GENERATORS 1, 2, and 3 TO RESTORE FULL POWER')
+        F.nextrely += 2
+        s = F.add(npyscreen.TitleSlider, value = n1, out_of=2, name = 'GENERATOR 1', label = False)
+        F.nextrely += 1
+        s = F.add(npyscreen.TitleSlider, value = n2, out_of=4, name = 'GENERATOR 2', label = False)
+        F.nextrely += 1
+        s = F.add(npyscreen.TitleSlider, value = n3, out_of=2, name = 'GENERATOR 3', label = False)
+        F.nextrely += 2
+        t2 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 1 CODE: "if i cannot inspire Love, i will cause Fear"')
+        F.nextrely += 1
+        t3 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 2 CODE: "th0re ishjZhGtbNMUD6ZVa3  1/ecJPLXhEd7ogH bmJPFHKQV1xCMIi/qB/S    1IkzV+NVi0UhM')
+        t5 = F.add(npyscreen.FixedText, value = 'Dkp+EyjyxSo10EFLPYw3cI1bohMTEhITMzISE   zNCFOl/sQqjCItW/G3o3WMSExMyFaGD4  skSUVNRDXdVkGfMTc8p12Vu')
+        t5 = F.add(npyscreen.FixedText, value = 'ubnl1bUmKdMJV9NiSEzOSE5ykQDV  E/S0zzle/WljXO9y2aQ3a/Uk56S/SNApbrrdfiDA+5HK9c   GrbP34dPhff80GyaiT')
+        F.nextrely += 2
+        t4 = F.add(npyscreen.FixedText, value = 'ERROR TERMINAL MALFUNCTION - ERROR CODE 0x0045')
+        F.display()
+        time.sleep(1)
     
    
     #return F.Login.value
