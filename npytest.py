@@ -17,7 +17,7 @@ class PasswordIncorrect(npyscreen.Popup):
 
 def getPhase():
     n = 0
-    r = requests.get('http://10.1.20.230/status', timeout=None)
+    r = requests.get('http://10.1.20.230/status')
     if r.text == 'phase one not triggered :: phase two not triggered':
         n = 0
     elif r.text == 'phase one triggered :: phase two not triggered':
@@ -28,7 +28,7 @@ def getPhase():
 
 def getGen2Phase():
     n = 0
-    r = requests.get('http://10.1.20.60/status', timeout=None)
+    r = requests.get('http://10.1.20.60/status')
     if r.text == 'Gen2: 000':
         n = 0
     elif r.text == 'Gen2: 025':
@@ -78,7 +78,7 @@ def mainScreen(*args):
         F.nextrely += 2
         t4 = F.add(npyscreen.FixedText, value = 'ERROR TERMINAL MALFUNCTION - ERROR CODE 0x0045')
         F.display()
-        time.sleep(2)
+        time.sleep(1)
     
    
     #return F.Login.value
