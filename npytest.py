@@ -28,16 +28,16 @@ def getPhase():
 
 def getGen2Phase():
     n = 0
-    r = requests.get('http://10.1.20.60/status')
-    if r.text == 'Gen2: 000':
+    r = requests.get('http://10.1.20.60/status').text
+    if r == 'Gen2: 000':
         n = 0
-    elif r.text == 'Gen2: 025':
+    elif r == 'Gen2: 025':
         n = 1
-    elif r.text == 'Gen2: 050':
+    elif r == 'Gen2: 050':
         n = 2
-    elif r.text == 'Gen2: 075':
+    elif r == 'Gen2: 075':
         n = 3
-    elif r.text == 'Gen2: 100':
+    elif r == 'Gen2: 100':
         n = 4
     return n
 
