@@ -26,6 +26,21 @@ def getPhase():
         n = 2
     return n
 
+def getGen2Phase():
+    n = 0
+    r = requests.get('http://10.1.20.60/status', timeout=None)
+    if r.text == 'Gen2: 000':
+        n = 0
+    elif r.text == 'Gen2: 025':
+        n = 1
+    elif r.text == 'Gen2: 050':
+        n = 2
+    elif r.text == 'Gen2: 075':
+        n = 3
+    elif r.text == 'Gen2: 100':
+        n = 4
+    return n
+
 def myFunction(*args):
     F = LoginForm(name = 'XTEEN POWER INTERFACE 2.3.11')
     F.edit()
@@ -45,12 +60,13 @@ def mainScreen(*args):
         n2 = 0
         n3 = 0
         n1 = getPhase()
+        n2 = getGen2Phase()
         F = npyscreen.Form(name = 'XTEEN POWER INTERFACE 2.3.11')
         t = F.add(npyscreen.FixedText, value = 'POWER FAILURE - RESTART GENERATORS 1, 2, and 3 TO RESTORE FULL POWER')
         F.nextrely += 2
         s = F.add(npyscreen.TitleSlider, value = n1, out_of=2, name = 'GENERATOR 1', label = False)
         F.nextrely += 1
-        s = F.add(npyscreen.TitleSlider, value = n2, out_of=2, name = 'GENERATOR 2', label = False)
+        s = F.add(npyscreen.TitleSlider, value = n2, out_of=4, name = 'GENERATOR 2', label = False)
         F.nextrely += 1
         s = F.add(npyscreen.TitleSlider, value = n3, out_of=2, name = 'GENERATOR 3', label = False)
         F.nextrely += 2
