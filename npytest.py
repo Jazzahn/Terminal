@@ -46,8 +46,8 @@ def myFunction(*args):
     F.edit()
     if F.Login.value == '161803':
         F = PasswordCorrect()
-        F.edit()
-        n = 0
+        #F.edit()
+        #n = 0
         npyscreen.wrapper_basic(mainScreen)
     elif F.Login.value != '161803':
         F = PasswordIncorrect()
