@@ -59,7 +59,7 @@ def mainScreen(*args):
         n1 = 0
         n2 = 0
         n3 = 0
-        n1 = getPhase()
+        n1 = int(requests.get('http://10.1.20.230/tstatus').text)
         n2 = int(requests.get('http://10.1.20.60/tstatus').text)
         F = npyscreen.Form(name = 'XTEEN POWER INTERFACE 2.3.11')
         t = F.add(npyscreen.FixedText, value = 'POWER FAILURE - RESTART GENERATORS 1, 2, and 3 TO RESTORE FULL POWER')
