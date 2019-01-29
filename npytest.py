@@ -1,6 +1,23 @@
 import npyscreen
 import requests
 import time
+import threading
+
+gen1 = 0
+gen2 = 0
+gen3 = 0
+
+def worker1():
+    while True:
+        global gen1
+        gen1 = int(requests.get('http://10.1.20.230/tstatus').text)
+        time.sleep(2)
+
+def worker2():
+    while True:
+        global gen2
+        gen2 = int(requests.get('http://10.1.20.60/tstatus').text)
+        time.sleep(2)
 
 class LoginForm(npyscreen.Form):
    def create(self):
@@ -15,38 +32,12 @@ class PasswordIncorrect(npyscreen.Popup):
     def create(self):
         self.Password = self.add(npyscreen.TitleText, name = ' ', value = 'PASSWORD INCORRECT', editable=False)        
 
-def getPhase():
-    n = 0
-    r = requests.get('http://10.1.20.230/status')
-    if r.text == 'phase one not triggered :: phase two not triggered':
-        n = 0
-    elif r.text == 'phase one triggered :: phase two not triggered':
-        n = 1
-    elif r.text == 'phase one triggered :: phase two triggered':
-        n = 2
-    return n
-
-def getGen2Phase():
-    n = 0
-    r = requests.get('http://10.1.20.60/tstatus').text
-    if r == 'Gen2: 000':
-        n = 0
-    elif r == 'Gen2: 025':
-        n = 1
-    elif r == 'Gen2: 050':
-        n = 2
-    elif r == 'Gen2: 075':
-        n = 3
-    elif r == 'Gen2: 100':
-        n = 4
-    return n
-
 def myFunction(*args):
     F = LoginForm(name = 'XTEEN POWER INTERFACE 2.3.11')
     F.edit()
     if F.Login.value == '161803':
         F = PasswordCorrect()
-        #F.edit()
+        F.edit()
         #n = 0
         npyscreen.wrapper_basic(mainScreen)
     elif F.Login.value != '161803':
@@ -59,14 +50,12 @@ def mainScreen(*args):
         n1 = 0
         n2 = 0
         n3 = 0
-        n1 = int(requests.get('http://10.1.20.230/tstatus').text)
-        n2 = int(requests.get('http://10.1.20.60/tstatus').text)
         F = npyscreen.Form(name = 'XTEEN POWER INTERFACE 2.3.11')
         t = F.add(npyscreen.FixedText, value = 'POWER FAILURE - RESTART GENERATORS 1, 2, and 3 TO RESTORE FULL POWER')
         F.nextrely += 2
-        s = F.add(npyscreen.TitleSlider, value = n1, out_of=2, name = 'GENERATOR 1', label = False)
+        s = F.add(npyscreen.TitleSlider, value = gen1, out_of=2, name = 'GENERATOR 1', label = False)
         F.nextrely += 1
-        s = F.add(npyscreen.TitleSlider, value = n2, out_of=4, name = 'GENERATOR 2', label = False)
+        s = F.add(npyscreen.TitleSlider, value = gen2, out_of=4, name = 'GENERATOR 2', label = False)
         F.nextrely += 1
         s = F.add(npyscreen.TitleSlider, value = n3, out_of=2, name = 'GENERATOR 3', label = False)
         F.nextrely += 2
@@ -78,9 +67,9 @@ def mainScreen(*args):
         F.nextrely += 2
         t4 = F.add(npyscreen.FixedText, value = 'ERROR TERMINAL MALFUNCTION - ERROR CODE 0x0045')
         F.display()
-        time.sleep(1)
-    
-   
+        #time.sleep(1)
+
+
     #return F.Login.value
    #def main(self):
         # These lines create the form and populate it with widgets.
@@ -106,5 +95,8 @@ def mainScreen(*args):
 if __name__ == "__main__":
     #App = TestApp()
     #App.run()
-
+    n1 = threading.Thread(target=worker1)
+    n1.start()
+    n2 = threading.Thread(target=worker2)
+    n2.start()
     npyscreen.wrapper_basic(myFunction)
