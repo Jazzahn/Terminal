@@ -2,6 +2,7 @@ import npyscreen
 import requests
 import time
 import threading
+from requests.adapters import HTTPAdapter
 
 gen1 = 0
 gen2 = 0
@@ -10,13 +11,15 @@ gen3 = 0
 def worker1():
     while True:
         global gen1
-        gen1 = int(requests.get('http://10.1.20.230/tstatus').text)
+        s = requests.Session()
+        s.mount('http://10.1.20.60:5000/status', HTTPAdapter(max_retries=5))
+        gen1 = int(requests.get('http://10.1.20.60:5000/status').text)
         time.sleep(2)
 
 def worker2():
     while True:
         global gen2
-        gen2 = int(requests.get('http://10.1.20.60/tstatus').text)
+        gen2 = int(requests.get('http://10.1.20.60:5000/tstatus').text)
         time.sleep(2)
 
 class LoginForm(npyscreen.Form):
@@ -69,32 +72,7 @@ def mainScreen(*args):
         F.display()
         #time.sleep(1)
 
-
-    #return F.Login.value
-   #def main(self):
-        # These lines create the form and populate it with widgets.
-        # A fairly complex screen in only 8 or so lines of code - a line for each control.
-        #F  = npyscreen.Form(name = "XTeen Computer Interface",)
-        #t  = F.add(npyscreen.TitleText, name = "LOGIN:",)
-        #fn = F.add(npyscreen.TitleFilename, name = "Filename:")
-        #fn2 = F.add(npyscreen.TitleFilenameCombo, name="Filename2:")
-        #dt = F.add(npyscreen.TitleDateCombo, name = "Date:")
-        #s  = F.add(npyscreen.TitleSlider, step=1 ,out_of=1, name = "GENERATOR 1")
-        #ml = F.add(npyscreen.MultiLineEdit,
-        #       value = """try typing here!\nMutiline text, press ^R to reformat.\n""",
-        #       max_height=5, rely=9)
-        #ms = F.add(npyscreen.TitleSelectOne, max_height=4, value = [1,], name="Pick One",
-        #        values = ["Option1","Option2","Option3"], scroll_exit=True)
-        #ms2= F.add(npyscreen.TitleMultiSelect, max_height =-2, value = [1,], name="Pick Several",
-        #        values = ["Option1","Option2","Option3"], scroll_exit=True)
-
-        # This lets the user interact with the Form.
-        
-        #F.edit()
-
 if __name__ == "__main__":
-    #App = TestApp()
-    #App.run()
     n1 = threading.Thread(target=worker1)
     n1.start()
     n2 = threading.Thread(target=worker2)
