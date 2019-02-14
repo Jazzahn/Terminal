@@ -62,6 +62,8 @@ def mainScreen(*args):
         F.nextrely += 1
         s = F.add(npyscreen.TitleSlider, value = n3, out_of=2, name = 'GENERATOR 3', label = False)
         F.nextrely += 2
+        t6 = F.add(npyscreen.FixedText, value = 'SECURITY CODE: 867-5309')
+        F.nextrely += 1
         t2 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 1 CODE: "if i cannot inspire Love, i will cause Fear"')
         F.nextrely += 1
         t3 = F.add(npyscreen.FixedText, value = 'GENERATOR 1 PHASE 2 CODE: "th0re ishjZhGtbNMUD6ZVa3  1/ecJPLXhEd7ogH bmJPFHKQV1xCMIi/qB/S    1IkzV+NVi0UhM')
